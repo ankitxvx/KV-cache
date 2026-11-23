@@ -4,6 +4,10 @@
 #include <cstddef>
 #include <string>
 #include <limits>
+#include <ostream>
+#include <stdexcept>
+#include <cmath>
+#include <algorithm>
 
 namespace kvcache {
 
@@ -118,6 +122,10 @@ inline const char* status_name(Status s) {
     return "UNKNOWN";
 }
 
+inline std::ostream& operator<<(std::ostream& os, Status s) {
+    return os << status_name(s);
+}
+
 // ---------------------------------------------------------------------------
 // Configuration
 // ---------------------------------------------------------------------------
@@ -136,11 +144,31 @@ struct KVCacheConfig {
     int sliding_window_size = 256;   ///< For SLIDING_WINDOW: number of recent tokens to keep
     int sink_token_count    = 4;     ///< For SLIDING_WINDOW/H2O: initial "sink" tokens to always keep
     float h2o_heavy_ratio   = 0.2f;  ///< For H2O: fraction of tokens to keep as heavy hitters
+    int max_sequence_tokens = 1048576;
+    int max_prefix_entries = 256;
+
+    void validate() const {
+        if (num_layers <= 0 || num_kv_heads <= 0 || head_dim <= 0 || block_size <= 0 ||
+            max_blocks < 0 || max_sequence_tokens <= 0 || max_prefix_entries < 0 ||
+            sliding_window_size < 0 || sink_token_count < 0 ||
+            !std::isfinite(h2o_heavy_ratio) || h2o_heavy_ratio < 0 || h2o_heavy_ratio > 1 ||
+            static_cast<unsigned>(dtype) > static_cast<unsigned>(DataType::INT8))
+            throw std::invalid_argument("Invalid KV cache configuration");
+        size_t bytes = dtype_size(dtype);
+        for (size_t factor : {size_t(2), size_t(num_layers), size_t(num_kv_heads),
+                              size_t(head_dim), size_t(block_size), size_t(std::max(1, max_blocks))}) {
+            if (bytes > std::numeric_limits<size_t>::max() / factor)
+                throw std::overflow_error("KV cache capacity overflow");
+            bytes *= factor;
+        }
+        if (static_cast<int64_t>(max_blocks) * block_size > std::numeric_limits<int>::max())
+            throw std::overflow_error("KV cache token capacity overflow");
+    }
 
     /// Computed: bytes per KV pair (K + V) for a single token in one layer.
     size_t kv_pair_bytes_per_token() const {
         // K and V each have shape [num_kv_heads, head_dim]
-        return 2 * num_kv_heads * head_dim * dtype_size(dtype);
+        return size_t(2) * num_kv_heads * head_dim * dtype_size(dtype);
     }
 
     /// Computed: bytes per block for one layer.

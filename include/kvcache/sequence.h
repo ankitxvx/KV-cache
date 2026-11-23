@@ -54,16 +54,26 @@ public:
     bool valid() const { return id_.valid(); }
 
     /// Access block table for a specific layer (for advanced use / prefix cache).
-    const BlockTable& block_table(int layer) const { return layer_tables_[layer]; }
-    BlockTable& block_table_mut(int layer) { return layer_tables_[layer]; }
+    const BlockTable& block_table(int layer) const {
+        if (layer < 0 || layer >= num_layers()) throw std::out_of_range("layer");
+        return table_;
+    }
 
     /// Number of layers.
-    int num_layers() const { return static_cast<int>(layer_tables_.size()); }
+    int num_layers() const { return static_cast<int>(layer_lengths_.size()); }
+    bool complete() const;
+    bool has_evictions() const;
+    int cached_tokens() const;
+    int evict_tokens(const std::vector<int>& tokens, BlockAllocator& allocator);
+    Status attach_prefix(const std::vector<BlockId>& blocks, int tokens, BlockAllocator& allocator);
 
 private:
     SequenceId id_;
     KVCacheConfig config_;
-    std::vector<BlockTable> layer_tables_;  ///< One block table per layer
+    Status prepare_write(int token, BlockAllocator& allocator, BlockId& block);
+    BlockTable table_; // One all-layer physical block per logical page.
+    std::vector<int> layer_lengths_;
+    std::vector<bool> evicted_;
 };
 
 } // namespace kvcache

@@ -1,0 +1,50 @@
+{
+    "$schema": "PageForge Configuration",
+    "model": {
+        "num_layers": 32,
+        "num_kv_heads": 8,
+        "head_dim": 128,
+        "block_size": 16,
+        "dtype": "FP16"
+    },
+    "tiers": {
+        "gpu": {
+            "enabled": true,
+            "memory_gb": 3.0
+        },
+        "cpu": {
+            "memory_gb": 16.0,
+            "use_pinned_memory": true
+        },
+        "ssd": {
+            "enabled": true,
+            "capacity_gb": 100.0,
+            "cache_path": "pageforge_ssd_pool.dat"
+        }
+    },
+    "eviction": {
+        "policy": "LRU",
+        "gpu_threshold": 0.90,
+        "cpu_threshold": 0.85,
+        "sliding_window_size": 256,
+        "sink_token_count": 4,
+        "h2o_heavy_ratio": 0.2
+    },
+    "scheduler": {
+        "max_batch_size": 32,
+        "max_prefill_tokens": 2048,
+        "max_waiting_requests": 256
+    },
+    "transfer": {
+        "num_threads": 4,
+        "staging_buffer_mb": 256
+    },
+    "logging": {
+        "level": "INFO",
+        "file": ""
+    },
+    "server": {
+        "host": "0.0.0.0",
+        "port": 8080
+    }
+}

@@ -1,0 +1,1 @@
+/usr/bin/c++ -O3 -DNDEBUG -O3 -Wl,--dependency-file=CMakeFiles/pageforge_cli.dir/link.d CMakeFiles/pageforge_cli.dir/cli/main.cpp.o -o pageforge_cli  libpageforge.a

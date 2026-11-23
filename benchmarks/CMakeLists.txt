@@ -1,2 +1,4 @@
 add_executable(bench_throughput bench_throughput.cpp)
-target_link_libraries(bench_throughput PRIVATE kvcache)
+target_link_libraries(bench_throughput PRIVATE pageforge)
+add_executable(bench_resume bench_resume.cpp)
+target_link_libraries(bench_resume PRIVATE pageforge)

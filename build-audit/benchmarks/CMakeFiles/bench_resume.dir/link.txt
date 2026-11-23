@@ -1,0 +1,1 @@
+/usr/bin/c++ -O3 -DNDEBUG -O3 -Wl,--dependency-file=CMakeFiles/bench_resume.dir/link.d CMakeFiles/bench_resume.dir/bench_resume.cpp.o -o bench_resume  ../libpageforge.a

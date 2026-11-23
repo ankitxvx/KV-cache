@@ -48,6 +48,12 @@ public:
 
     /// Retrieve cached KV data for a specific token at a specific layer.
     KVPair get_kv(SequenceId seq_id, int layer, int token_idx) const;
+    /// Copies under the manager lock; preferred for concurrent callers.
+    Status copy_kv(SequenceId seq_id, int layer, int token_idx, void* key, void* value, size_t bytes) const;
+    /// Export live tokens as contiguous FP32 K/V arrays and original positions.
+    Status export_layer(SequenceId seq_id, int layer, std::vector<float>& keys,
+                        std::vector<float>& values, std::vector<int>& positions) const;
+    void clear_prefix_cache();
 
     /// Get the number of tokens cached for a sequence.
     int get_num_tokens(SequenceId seq_id) const;
@@ -94,6 +100,7 @@ public:
 private:
     Sequence* find_sequence(SequenceId seq_id);
     const Sequence* find_sequence(SequenceId seq_id) const;
+    int evict_locked(SequenceId seq_id, int count);
 
     KVCacheConfig                                                config_;
     std::unique_ptr<BlockAllocator>                              allocator_;

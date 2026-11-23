@@ -6,6 +6,7 @@ namespace kvcache {
 BlockAllocator::BlockAllocator(const KVCacheConfig& config)
     : config_(config)
 {
+    config_.validate();
     // Precompute sizes
     // K or V for one token = num_kv_heads * head_dim * dtype_size
     kv_per_token_bytes_ = static_cast<size_t>(config_.num_kv_heads)
@@ -51,7 +52,8 @@ void BlockAllocator::free(BlockId id) {
     std::lock_guard<std::mutex> lock(mutex_);
 
     auto& block = blocks_[id.value];
-    block.ref_count = 0;
+    if (block.ref_count == 0) return;
+    if (--block.ref_count > 0) return;
     block.used_slots = 0;
     // Don't zero the data — it will be overwritten on next use
     free_list_.push_back(id);
@@ -62,7 +64,7 @@ void BlockAllocator::ref(BlockId id) {
     if (!valid_block(id)) return;
 
     std::lock_guard<std::mutex> lock(mutex_);
-    blocks_[id.value].ref_count++;
+    if (blocks_[id.value].ref_count > 0) blocks_[id.value].ref_count++;
 }
 
 void BlockAllocator::unref(BlockId id) {
@@ -70,6 +72,7 @@ void BlockAllocator::unref(BlockId id) {
 
     std::lock_guard<std::mutex> lock(mutex_);
     auto& block = blocks_[id.value];
+    if (block.ref_count == 0) return;
     block.ref_count--;
 
     if (block.ref_count <= 0) {
@@ -84,6 +87,16 @@ int BlockAllocator::get_ref_count(BlockId id) const {
     if (!valid_block(id)) return 0;
     std::lock_guard<std::mutex> lock(mutex_);
     return blocks_[id.value].ref_count;
+}
+
+void* BlockAllocator::get_block_ptr(BlockId id) {
+    if (!valid_block(id)) return nullptr;
+    return blocks_[id.value].data.data();
+}
+
+const void* BlockAllocator::get_block_ptr(BlockId id) const {
+    if (!valid_block(id)) return nullptr;
+    return blocks_[id.value].data.data();
 }
 
 size_t BlockAllocator::compute_layer_offset(int layer) const {
@@ -159,11 +172,13 @@ KVPair BlockAllocator::get_kv_slot(BlockId id, int layer, int slot) const {
 
 int BlockAllocator::get_used_slots(BlockId id) const {
     if (!valid_block(id)) return 0;
+    std::lock_guard<std::mutex> lock(mutex_);
     return blocks_[id.value].used_slots;
 }
 
 void BlockAllocator::set_used_slots(BlockId id, int count) {
     if (!valid_block(id)) return;
+    std::lock_guard<std::mutex> lock(mutex_);
     blocks_[id.value].used_slots = count;
 }
 

@@ -1,0 +1,1 @@
+/usr/bin/c++ -O3 -DNDEBUG -O3 -Wl,--dependency-file=CMakeFiles/test_prefix_cache.dir/link.d CMakeFiles/test_prefix_cache.dir/test_prefix_cache.cpp.o -o test_prefix_cache  ../libpageforge.a

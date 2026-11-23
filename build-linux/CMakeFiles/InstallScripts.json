@@ -1,0 +1,9 @@
+{
+	"InstallScripts" : 
+	[
+		"/mnt/c/Users/ankit/OneDrive/Desktop/KVcacheproject/build-linux/cmake_install.cmake",
+		"/mnt/c/Users/ankit/OneDrive/Desktop/KVcacheproject/build-linux/tests/cmake_install.cmake",
+		"/mnt/c/Users/ankit/OneDrive/Desktop/KVcacheproject/build-linux/benchmarks/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

@@ -50,7 +50,7 @@ public:
 /// tokens are evicted first.
 class LRUEviction : public IEvictionPolicy {
 public:
-    void on_token_accessed(SequenceId seq_id, int token_idx, float attention_score) override;
+    void on_token_accessed(SequenceId seq_id, int token_idx, float attention_score = 0.0f) override;
     std::vector<int> select_victims(SequenceId seq_id, int num_to_evict) override;
     void on_token_evicted(SequenceId seq_id, int token_idx) override;
     void on_sequence_created(SequenceId seq_id) override;
@@ -78,7 +78,7 @@ public:
     /// @param sink_count   Number of initial tokens to always protect ("attention sinks").
     explicit H2OEviction(float heavy_ratio = 0.2f, int sink_count = 4);
 
-    void on_token_accessed(SequenceId seq_id, int token_idx, float attention_score) override;
+    void on_token_accessed(SequenceId seq_id, int token_idx, float attention_score = 0.0f) override;
     std::vector<int> select_victims(SequenceId seq_id, int num_to_evict) override;
     void on_token_evicted(SequenceId seq_id, int token_idx) override;
     void on_sequence_created(SequenceId seq_id) override;
@@ -109,7 +109,7 @@ public:
     /// @param sink_count   Number of initial tokens to always retain.
     explicit SlidingWindowEviction(int window_size = 256, int sink_count = 4);
 
-    void on_token_accessed(SequenceId seq_id, int token_idx, float attention_score) override;
+    void on_token_accessed(SequenceId seq_id, int token_idx, float attention_score = 0.0f) override;
     std::vector<int> select_victims(SequenceId seq_id, int num_to_evict) override;
     void on_token_evicted(SequenceId seq_id, int token_idx) override;
     void on_sequence_created(SequenceId seq_id) override;

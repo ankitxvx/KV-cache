@@ -13,7 +13,10 @@ namespace kvcache {
 /// be shared via Copy-on-Write to avoid redundant computation and memory usage.
 class PrefixCache {
 public:
-    explicit PrefixCache(int block_size);
+    explicit PrefixCache(int block_size, BlockAllocator* allocator = nullptr, size_t max_entries = 256);
+    ~PrefixCache();
+    PrefixCache(const PrefixCache&) = delete;
+    PrefixCache& operator=(const PrefixCache&) = delete;
 
     /// Try to find cached blocks matching a prefix of the given token IDs.
     /// Returns the number of tokens that were matched (always a multiple of block_size).
@@ -33,6 +36,7 @@ public:
 
     /// Evict all prefix entries.
     void clear();
+    bool evict_one();
 
     /// Number of registered prefix entries.
     int size() const { return static_cast<int>(cache_.size()); }
@@ -51,6 +55,9 @@ private:
     };
 
     int block_size_;
+    BlockAllocator* allocator_;
+    size_t max_entries_;
+    void release(const PrefixEntry& entry);
     std::unordered_map<size_t, PrefixEntry> cache_;  ///< hash → prefix entry
 
     mutable int64_t hits_   = 0;

@@ -7,6 +7,7 @@ BlockTable::BlockTable(int block_size)
     : block_size_(block_size)
     , num_tokens_(0)
 {
+    if (block_size <= 0) throw std::invalid_argument("block_size must be positive");
 }
 
 Status BlockTable::append_slot(BlockAllocator& allocator, BlockId& out_block, int& out_slot) {
@@ -14,11 +15,17 @@ Status BlockTable::append_slot(BlockAllocator& allocator, BlockId& out_block, in
 
     // Need a new block?
     if (slot_in_block == 0) {
+        blocks_.reserve(blocks_.size() + 1);
         BlockId new_block = allocator.allocate();
         if (!new_block.valid()) {
             return Status::ERROR_OUT_OF_MEMORY;
         }
         blocks_.push_back(new_block);
+    } else if (allocator.get_ref_count(blocks_.back()) > 1) {
+        BlockId replacement = allocator.copy_on_write(blocks_.back());
+        if (!replacement.valid()) return Status::ERROR_OUT_OF_MEMORY;
+        allocator.unref(blocks_.back());
+        blocks_.back() = replacement;
     }
 
     out_block = blocks_.back();
@@ -94,7 +101,8 @@ void BlockTable::truncate(int new_num_tokens, BlockAllocator& allocator) {
     if (!blocks_.empty() && new_num_tokens > 0) {
         int last_used = new_num_tokens % block_size_;
         if (last_used == 0) last_used = block_size_;
-        allocator.set_used_slots(blocks_.back(), last_used);
+        if (allocator.get_ref_count(blocks_.back()) == 1)
+            allocator.set_used_slots(blocks_.back(), last_used);
     }
 }
 

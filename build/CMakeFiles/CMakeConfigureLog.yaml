@@ -2011,3 +2011,514 @@ events:
         
       exitCode: 1
 ...
+
+---
+events:
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/Users/ankit/AppData/Local/Packages/PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0/LocalCache/local-packages/Python312/site-packages/cmake/data/share/cmake-4.4/Modules/CMakeDetermineCompilerId.cmake:501 (find_file)"
+      - "C:/Users/ankit/AppData/Local/Packages/PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0/LocalCache/local-packages/Python312/site-packages/cmake/data/share/cmake-4.4/Modules/CMakeDetermineCompilerId.cmake:538 (CMAKE_DETERMINE_COMPILER_ID_WRITE)"
+      - "C:/Users/ankit/AppData/Local/Packages/PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0/LocalCache/local-packages/Python312/site-packages/cmake/data/share/cmake-4.4/Modules/CMakeDetermineCompilerId.cmake:8 (CMAKE_DETERMINE_COMPILER_ID_BUILD)"
+      - "C:/Users/ankit/AppData/Local/Packages/PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0/LocalCache/local-packages/Python312/site-packages/cmake/data/share/cmake-4.4/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "C:/Users/ankit/AppData/Local/Packages/PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0/LocalCache/local-packages/Python312/site-packages/cmake/data/share/cmake-4.4/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "file"
+    variable: "src_in"
+    description: "Path to a file."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "CMakeCXXCompilerId.cpp.in"
+    candidate_directories:
+      - "C:/Users/ankit/AppData/Local/Packages/PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0/LocalCache/local-packages/Python312/site-packages/cmake/data/share/cmake-4.4/Modules/"
+    found: "C:/Users/ankit/AppData/Local/Packages/PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0/LocalCache/local-packages/Python312/site-packages/cmake/data/share/cmake-4.4/Modules/CMakeCXXCompilerId.cpp.in"
+    search_context:
+      ENV{PATH}:
+        - "C:\\Users\\ankit\\AppData\\Local\\Packages\\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\\LocalCache\\local-packages\\Python312\\site-packages\\cmake\\data\\bin"
+        - "C:\\Users\\ankit\\AppData\\Local\\Packages\\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\\LocalCache\\local-packages\\Python312\\Scripts"
+        - "C:/Users/ankit/.gemini/antigravity-ide/bin"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\Git\\cmd"
+        - "C:\\Program Files\\nodejs\\"
+        - "C:\\Program Files\\LLVM\\bin"
+        - "C:\\Users\\ankit\\AppData\\Local\\agy\\bin"
+        - "C:\\Users\\ankit\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\ankit\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin"
+        - "C:\\Users\\ankit\\AppData\\Roaming\\npm"
+        - "C:\\Users\\ankit\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Users\\ankit\\AppData\\Local\\Programs\\Antigravity IDE\\bin"
+      CMAKE_INSTALL_PREFIX: "C:/Program Files (x86)/KVCache"
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Users/ankit/AppData/Local/Packages/PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0/LocalCache/local-packages/Python312/site-packages/cmake/data/share/cmake-4.4/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "C:/Users/ankit/AppData/Local/Packages/PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0/LocalCache/local-packages/Python312/site-packages/cmake/data/share/cmake-4.4/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "C:/Users/ankit/AppData/Local/Packages/PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0/LocalCache/local-packages/Python312/site-packages/cmake/data/share/cmake-4.4/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+      Compiler: C:/Program Files/LLVM/bin/clang++.exe 
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      1
+      lld-link: error: could not open 'libcmt.lib': no such file or directory
+      lld-link: error: could not open 'oldnames.lib': no such file or directory
+      clang++: error: linker command failed with exit code 1 (use -v to see invocation)
+      
+      
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/Users/ankit/AppData/Local/Packages/PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0/LocalCache/local-packages/Python312/site-packages/cmake/data/share/cmake-4.4/Modules/CMakeDetermineCompilerId.cmake:501 (find_file)"
+      - "C:/Users/ankit/AppData/Local/Packages/PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0/LocalCache/local-packages/Python312/site-packages/cmake/data/share/cmake-4.4/Modules/CMakeDetermineCompilerId.cmake:538 (CMAKE_DETERMINE_COMPILER_ID_WRITE)"
+      - "C:/Users/ankit/AppData/Local/Packages/PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0/LocalCache/local-packages/Python312/site-packages/cmake/data/share/cmake-4.4/Modules/CMakeDetermineCompilerId.cmake:8 (CMAKE_DETERMINE_COMPILER_ID_BUILD)"
+      - "C:/Users/ankit/AppData/Local/Packages/PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0/LocalCache/local-packages/Python312/site-packages/cmake/data/share/cmake-4.4/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "C:/Users/ankit/AppData/Local/Packages/PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0/LocalCache/local-packages/Python312/site-packages/cmake/data/share/cmake-4.4/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "file"
+    variable: "src_in"
+    description: "Path to a file."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "CMakeCXXCompilerId.cpp.in"
+    candidate_directories:
+      - "C:/Users/ankit/AppData/Local/Packages/PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0/LocalCache/local-packages/Python312/site-packages/cmake/data/share/cmake-4.4/Modules/"
+    found: "C:/Users/ankit/AppData/Local/Packages/PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0/LocalCache/local-packages/Python312/site-packages/cmake/data/share/cmake-4.4/Modules/CMakeCXXCompilerId.cpp.in"
+    search_context:
+      ENV{PATH}:
+        - "C:\\Users\\ankit\\AppData\\Local\\Packages\\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\\LocalCache\\local-packages\\Python312\\site-packages\\cmake\\data\\bin"
+        - "C:\\Users\\ankit\\AppData\\Local\\Packages\\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\\LocalCache\\local-packages\\Python312\\Scripts"
+        - "C:/Users/ankit/.gemini/antigravity-ide/bin"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\Git\\cmd"
+        - "C:\\Program Files\\nodejs\\"
+        - "C:\\Program Files\\LLVM\\bin"
+        - "C:\\Users\\ankit\\AppData\\Local\\agy\\bin"
+        - "C:\\Users\\ankit\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\ankit\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin"
+        - "C:\\Users\\ankit\\AppData\\Roaming\\npm"
+        - "C:\\Users\\ankit\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Users\\ankit\\AppData\\Local\\Programs\\Antigravity IDE\\bin"
+      CMAKE_INSTALL_PREFIX: "C:/Program Files (x86)/KVCache"
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Users/ankit/AppData/Local/Packages/PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0/LocalCache/local-packages/Python312/site-packages/cmake/data/share/cmake-4.4/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "C:/Users/ankit/AppData/Local/Packages/PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0/LocalCache/local-packages/Python312/site-packages/cmake/data/share/cmake-4.4/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "C:/Users/ankit/AppData/Local/Packages/PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0/LocalCache/local-packages/Python312/site-packages/cmake/data/share/cmake-4.4/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+      Compiler: C:/Program Files/LLVM/bin/clang++.exe 
+      Build flags: 
+      Id flags: -c 
+      
+      The output was:
+      0
+      
+      
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CMakeCXXCompilerId.o"
+      
+      The CXX compiler identification is Clang, found in:
+        C:/Users/ankit/OneDrive/Desktop/KVcacheproject/build/CMakeFiles/4.4.3/CompilerIdCXX/CMakeCXXCompilerId.o
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Users/ankit/AppData/Local/Packages/PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0/LocalCache/local-packages/Python312/site-packages/cmake/data/share/cmake-4.4/Modules/CMakeDetermineCompilerId.cmake:1379 (message)"
+      - "C:/Users/ankit/AppData/Local/Packages/PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0/LocalCache/local-packages/Python312/site-packages/cmake/data/share/cmake-4.4/Modules/CMakeDetermineCompilerId.cmake:277 (CMAKE_DETERMINE_MSVC_SHOWINCLUDES_PREFIX)"
+      - "C:/Users/ankit/AppData/Local/Packages/PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0/LocalCache/local-packages/Python312/site-packages/cmake/data/share/cmake-4.4/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Detecting CXX compiler /showIncludes prefix:
+        
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Users/ankit/AppData/Local/Packages/PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0/LocalCache/local-packages/Python312/site-packages/cmake/data/share/cmake-4.4/Modules/CMakeDetermineCompilerId.cmake:1379 (message)"
+      - "C:/Users/ankit/AppData/Local/Packages/PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0/LocalCache/local-packages/Python312/site-packages/cmake/data/share/cmake-4.4/Modules/CMakeDetermineCompilerId.cmake:277 (CMAKE_DETERMINE_MSVC_SHOWINCLUDES_PREFIX)"
+      - "C:/Users/ankit/AppData/Local/Packages/PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0/LocalCache/local-packages/Python312/site-packages/cmake/data/share/cmake-4.4/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Detecting CXX compiler /showIncludes prefix:
+        
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/Users/ankit/AppData/Local/Packages/PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0/LocalCache/local-packages/Python312/site-packages/cmake/data/share/cmake-4.4/Modules/Platform/Windows-Clang.cmake:210 (find_program)"
+      - "C:/Users/ankit/AppData/Local/Packages/PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0/LocalCache/local-packages/Python312/site-packages/cmake/data/share/cmake-4.4/Modules/Platform/Windows-Clang-CXX.cmake:1 (include)"
+      - "C:/Users/ankit/AppData/Local/Packages/PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0/LocalCache/local-packages/Python312/site-packages/cmake/data/share/cmake-4.4/Modules/CMakeCXXInformation.cmake:48 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "__RC_COMPILER_PATH"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "rc"
+    candidate_directories:
+      - "C:/Users/ankit/AppData/Local/Packages/PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0/LocalCache/local-packages/Python312/site-packages/cmake/data/bin/"
+      - "C:/Users/ankit/AppData/Local/Packages/PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0/LocalCache/local-packages/Python312/Scripts/"
+      - "C:/Users/ankit/.gemini/antigravity-ide/bin/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files/Git/cmd/"
+      - "C:/Program Files/nodejs/"
+      - "C:/Program Files/LLVM/bin/"
+      - "C:/Users/ankit/AppData/Local/agy/bin/"
+      - "C:/Users/ankit/AppData/Local/Microsoft/WindowsApps/"
+      - "C:/Users/ankit/AppData/Local/Programs/DockerDesktop/resources/bin/"
+      - "C:/Users/ankit/AppData/Roaming/npm/"
+      - "C:/Users/ankit/AppData/Local/Programs/Microsoft VS Code/bin/"
+      - "C:/Users/ankit/AppData/Local/Programs/Antigravity IDE/bin/"
+      - "C:/Program Files/bin/"
+      - "C:/Program Files/sbin/"
+      - "C:/Program Files/"
+      - "C:/Program Files (x86)/bin/"
+      - "C:/Program Files (x86)/sbin/"
+      - "C:/Program Files (x86)/"
+      - "C:/Users/ankit/AppData/Local/Packages/PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0/LocalCache/local-packages/Python312/site-packages/cmake/data/bin/"
+      - "C:/Users/ankit/AppData/Local/Packages/PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0/LocalCache/local-packages/Python312/site-packages/cmake/data/sbin/"
+      - "C:/Users/ankit/AppData/Local/Packages/PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0/LocalCache/local-packages/Python312/site-packages/cmake/data/"
+      - "C:/Program Files (x86)/KVCache/bin/"
+      - "C:/Program Files (x86)/KVCache/sbin/"
+      - "C:/Program Files (x86)/KVCache/"
+    searched_directories:
+      - "C:/Users/ankit/AppData/Local/Packages/PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0/LocalCache/local-packages/Python312/site-packages/cmake/data/bin/rc.com"
+      - "C:/Users/ankit/AppData/Local/Packages/PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0/LocalCache/local-packages/Python312/site-packages/cmake/data/bin/rc.exe"
+      - "C:/Users/ankit/AppData/Local/Packages/PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0/LocalCache/local-packages/Python312/site-packages/cmake/data/bin/rc"
+      - "C:/Users/ankit/AppData/Local/Packages/PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0/LocalCache/local-packages/Python312/Scripts/rc.com"
+      - "C:/Users/ankit/AppData/Local/Packages/PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0/LocalCache/local-packages/Python312/Scripts/rc.exe"
+      - "C:/Users/ankit/AppData/Local/Packages/PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0/LocalCache/local-packages/Python312/Scripts/rc"
+      - "C:/Users/ankit/.gemini/antigravity-ide/bin/rc.com"
+      - "C:/Users/ankit/.gemini/antigravity-ide/bin/rc.exe"
+      - "C:/Users/ankit/.gemini/antigravity-ide/bin/rc"
+      - "C:/Windows/System32/rc.com"
+      - "C:/Windows/System32/rc.exe"
+      - "C:/Windows/System32/rc"
+      - "C:/Windows/rc.com"
+      - "C:/Windows/rc.exe"
+      - "C:/Windows/rc"
+      - "C:/Windows/System32/wbem/rc.com"
+      - "C:/Windows/System32/wbem/rc.exe"
+      - "C:/Windows/System32/wbem/rc"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/rc.com"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/rc.exe"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/rc"
+      - "C:/Windows/System32/OpenSSH/rc.com"
+      - "C:/Windows/System32/OpenSSH/rc.exe"
+      - "C:/Windows/System32/OpenSSH/rc"
+      - "C:/Program Files/Git/cmd/rc.com"
+      - "C:/Program Files/Git/cmd/rc.exe"
+      - "C:/Program Files/Git/cmd/rc"
+      - "C:/Program Files/nodejs/rc.com"
+      - "C:/Program Files/nodejs/rc.exe"
+      - "C:/Program Files/nodejs/rc"
+      - "C:/Program Files/LLVM/bin/rc.com"
+      - "C:/Program Files/LLVM/bin/rc.exe"
+      - "C:/Program Files/LLVM/bin/rc"
+      - "C:/Users/ankit/AppData/Local/agy/bin/rc.com"
+      - "C:/Users/ankit/AppData/Local/agy/bin/rc.exe"
+      - "C:/Users/ankit/AppData/Local/agy/bin/rc"
+      - "C:/Users/ankit/AppData/Local/Microsoft/WindowsApps/rc.com"
+      - "C:/Users/ankit/AppData/Local/Microsoft/WindowsApps/rc.exe"
+      - "C:/Users/ankit/AppData/Local/Microsoft/WindowsApps/rc"
+      - "C:/Users/ankit/AppData/Local/Programs/DockerDesktop/resources/bin/rc.com"
+      - "C:/Users/ankit/AppData/Local/Programs/DockerDesktop/resources/bin/rc.exe"
+      - "C:/Users/ankit/AppData/Local/Programs/DockerDesktop/resources/bin/rc"
+      - "C:/Users/ankit/AppData/Roaming/npm/rc.com"
+      - "C:/Users/ankit/AppData/Roaming/npm/rc.exe"
+      - "C:/Users/ankit/AppData/Roaming/npm/rc"
+      - "C:/Users/ankit/AppData/Local/Programs/Microsoft VS Code/bin/rc.com"
+      - "C:/Users/ankit/AppData/Local/Programs/Microsoft VS Code/bin/rc.exe"
+      - "C:/Users/ankit/AppData/Local/Programs/Microsoft VS Code/bin/rc"
+      - "C:/Users/ankit/AppData/Local/Programs/Antigravity IDE/bin/rc.com"
+      - "C:/Users/ankit/AppData/Local/Programs/Antigravity IDE/bin/rc.exe"
+      - "C:/Users/ankit/AppData/Local/Programs/Antigravity IDE/bin/rc"
+      - "C:/Program Files/bin/rc.com"
+      - "C:/Program Files/bin/rc.exe"
+      - "C:/Program Files/bin/rc"
+      - "C:/Program Files/sbin/rc.com"
+      - "C:/Program Files/sbin/rc.exe"
+      - "C:/Program Files/sbin/rc"
+      - "C:/Program Files/rc.com"
+      - "C:/Program Files/rc.exe"
+      - "C:/Program Files/rc"
+      - "C:/Program Files (x86)/bin/rc.com"
+      - "C:/Program Files (x86)/bin/rc.exe"
+      - "C:/Program Files (x86)/bin/rc"
+      - "C:/Program Files (x86)/sbin/rc.com"
+      - "C:/Program Files (x86)/sbin/rc.exe"
+      - "C:/Program Files (x86)/sbin/rc"
+      - "C:/Program Files (x86)/rc.com"
+      - "C:/Program Files (x86)/rc.exe"
+      - "C:/Program Files (x86)/rc"
+      - "C:/Users/ankit/AppData/Local/Packages/PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0/LocalCache/local-packages/Python312/site-packages/cmake/data/bin/rc.com"
+      - "C:/Users/ankit/AppData/Local/Packages/PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0/LocalCache/local-packages/Python312/site-packages/cmake/data/bin/rc.exe"
+      - "C:/Users/ankit/AppData/Local/Packages/PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0/LocalCache/local-packages/Python312/site-packages/cmake/data/bin/rc"
+      - "C:/Users/ankit/AppData/Local/Packages/PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0/LocalCache/local-packages/Python312/site-packages/cmake/data/sbin/rc.com"
+      - "C:/Users/ankit/AppData/Local/Packages/PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0/LocalCache/local-packages/Python312/site-packages/cmake/data/sbin/rc.exe"
+      - "C:/Users/ankit/AppData/Local/Packages/PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0/LocalCache/local-packages/Python312/site-packages/cmake/data/sbin/rc"
+      - "C:/Users/ankit/AppData/Local/Packages/PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0/LocalCache/local-packages/Python312/site-packages/cmake/data/rc.com"
+      - "C:/Users/ankit/AppData/Local/Packages/PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0/LocalCache/local-packages/Python312/site-packages/cmake/data/rc.exe"
+      - "C:/Users/ankit/AppData/Local/Packages/PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0/LocalCache/local-packages/Python312/site-packages/cmake/data/rc"
+      - "C:/Program Files (x86)/KVCache/bin/rc.com"
+      - "C:/Program Files (x86)/KVCache/bin/rc.exe"
+      - "C:/Program Files (x86)/KVCache/bin/rc"
+      - "C:/Program Files (x86)/KVCache/sbin/rc.com"
+      - "C:/Program Files (x86)/KVCache/sbin/rc.exe"
+      - "C:/Program Files (x86)/KVCache/sbin/rc"
+      - "C:/Program Files (x86)/KVCache/rc.com"
+      - "C:/Program Files (x86)/KVCache/rc.exe"
+      - "C:/Program Files (x86)/KVCache/rc"
+    found: false
+    search_context:
+      ENV{PATH}:
+        - "C:\\Users\\ankit\\AppData\\Local\\Packages\\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\\LocalCache\\local-packages\\Python312\\site-packages\\cmake\\data\\bin"
+        - "C:\\Users\\ankit\\AppData\\Local\\Packages\\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\\LocalCache\\local-packages\\Python312\\Scripts"
+        - "C:/Users/ankit/.gemini/antigravity-ide/bin"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\Git\\cmd"
+        - "C:\\Program Files\\nodejs\\"
+        - "C:\\Program Files\\LLVM\\bin"
+        - "C:\\Users\\ankit\\AppData\\Local\\agy\\bin"
+        - "C:\\Users\\ankit\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\ankit\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin"
+        - "C:\\Users\\ankit\\AppData\\Roaming\\npm"
+        - "C:\\Users\\ankit\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Users\\ankit\\AppData\\Local\\Programs\\Antigravity IDE\\bin"
+      CMAKE_INSTALL_PREFIX: "C:/Program Files (x86)/KVCache"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "C:/Program Files"
+        - "C:/Program Files (x86)"
+        - "C:/Users/ankit/AppData/Local/Packages/PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0/LocalCache/local-packages/Python312/site-packages/cmake/data"
+        - "C:/Program Files (x86)/KVCache"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/Users/ankit/AppData/Local/Packages/PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0/LocalCache/local-packages/Python312/site-packages/cmake/data/share/cmake-4.4/Modules/Platform/Windows-Clang.cmake:216 (find_program)"
+      - "C:/Users/ankit/AppData/Local/Packages/PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0/LocalCache/local-packages/Python312/site-packages/cmake/data/share/cmake-4.4/Modules/Platform/Windows-Clang-CXX.cmake:1 (include)"
+      - "C:/Users/ankit/AppData/Local/Packages/PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0/LocalCache/local-packages/Python312/site-packages/cmake/data/share/cmake-4.4/Modules/CMakeCXXInformation.cmake:48 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "__RC_COMPILER_PATH"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "llvm-rc"
+    candidate_directories:
+      - "C:/Users/ankit/AppData/Local/Packages/PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0/LocalCache/local-packages/Python312/site-packages/cmake/data/bin/"
+      - "C:/Users/ankit/AppData/Local/Packages/PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0/LocalCache/local-packages/Python312/Scripts/"
+      - "C:/Users/ankit/.gemini/antigravity-ide/bin/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files/Git/cmd/"
+      - "C:/Program Files/nodejs/"
+      - "C:/Program Files/LLVM/bin/"
+      - "C:/Users/ankit/AppData/Local/agy/bin/"
+      - "C:/Users/ankit/AppData/Local/Microsoft/WindowsApps/"
+      - "C:/Users/ankit/AppData/Local/Programs/DockerDesktop/resources/bin/"
+      - "C:/Users/ankit/AppData/Roaming/npm/"
+      - "C:/Users/ankit/AppData/Local/Programs/Microsoft VS Code/bin/"
+      - "C:/Users/ankit/AppData/Local/Programs/Antigravity IDE/bin/"
+      - "C:/Program Files/bin/"
+      - "C:/Program Files/sbin/"
+      - "C:/Program Files/"
+      - "C:/Program Files (x86)/bin/"
+      - "C:/Program Files (x86)/sbin/"
+      - "C:/Program Files (x86)/"
+      - "C:/Users/ankit/AppData/Local/Packages/PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0/LocalCache/local-packages/Python312/site-packages/cmake/data/bin/"
+      - "C:/Users/ankit/AppData/Local/Packages/PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0/LocalCache/local-packages/Python312/site-packages/cmake/data/sbin/"
+      - "C:/Users/ankit/AppData/Local/Packages/PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0/LocalCache/local-packages/Python312/site-packages/cmake/data/"
+      - "C:/Program Files (x86)/KVCache/bin/"
+      - "C:/Program Files (x86)/KVCache/sbin/"
+      - "C:/Program Files (x86)/KVCache/"
+    searched_directories:
+      - "C:/Users/ankit/AppData/Local/Packages/PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0/LocalCache/local-packages/Python312/site-packages/cmake/data/bin/llvm-rc.com"
+      - "C:/Users/ankit/AppData/Local/Packages/PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0/LocalCache/local-packages/Python312/site-packages/cmake/data/bin/llvm-rc.exe"
+      - "C:/Users/ankit/AppData/Local/Packages/PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0/LocalCache/local-packages/Python312/site-packages/cmake/data/bin/llvm-rc"
+      - "C:/Users/ankit/AppData/Local/Packages/PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0/LocalCache/local-packages/Python312/Scripts/llvm-rc.com"
+      - "C:/Users/ankit/AppData/Local/Packages/PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0/LocalCache/local-packages/Python312/Scripts/llvm-rc.exe"
+      - "C:/Users/ankit/AppData/Local/Packages/PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0/LocalCache/local-packages/Python312/Scripts/llvm-rc"
+      - "C:/Users/ankit/.gemini/antigravity-ide/bin/llvm-rc.com"
+      - "C:/Users/ankit/.gemini/antigravity-ide/bin/llvm-rc.exe"
+      - "C:/Users/ankit/.gemini/antigravity-ide/bin/llvm-rc"
+      - "C:/Windows/System32/llvm-rc.com"
+      - "C:/Windows/System32/llvm-rc.exe"
+      - "C:/Windows/System32/llvm-rc"
+      - "C:/Windows/llvm-rc.com"
+      - "C:/Windows/llvm-rc.exe"
+      - "C:/Windows/llvm-rc"
+      - "C:/Windows/System32/wbem/llvm-rc.com"
+      - "C:/Windows/System32/wbem/llvm-rc.exe"
+      - "C:/Windows/System32/wbem/llvm-rc"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/llvm-rc.com"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/llvm-rc.exe"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/llvm-rc"
+      - "C:/Windows/System32/OpenSSH/llvm-rc.com"
+      - "C:/Windows/System32/OpenSSH/llvm-rc.exe"
+      - "C:/Windows/System32/OpenSSH/llvm-rc"
+      - "C:/Program Files/Git/cmd/llvm-rc.com"
+      - "C:/Program Files/Git/cmd/llvm-rc.exe"
+      - "C:/Program Files/Git/cmd/llvm-rc"
+      - "C:/Program Files/nodejs/llvm-rc.com"
+      - "C:/Program Files/nodejs/llvm-rc.exe"
+      - "C:/Program Files/nodejs/llvm-rc"
+      - "C:/Program Files/LLVM/bin/llvm-rc.com"
+    found: "C:/Program Files/LLVM/bin/llvm-rc.exe"
+    search_context:
+      ENV{PATH}:
+        - "C:\\Users\\ankit\\AppData\\Local\\Packages\\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\\LocalCache\\local-packages\\Python312\\site-packages\\cmake\\data\\bin"
+        - "C:\\Users\\ankit\\AppData\\Local\\Packages\\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\\LocalCache\\local-packages\\Python312\\Scripts"
+        - "C:/Users/ankit/.gemini/antigravity-ide/bin"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\Git\\cmd"
+        - "C:\\Program Files\\nodejs\\"
+        - "C:\\Program Files\\LLVM\\bin"
+        - "C:\\Users\\ankit\\AppData\\Local\\agy\\bin"
+        - "C:\\Users\\ankit\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\ankit\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin"
+        - "C:\\Users\\ankit\\AppData\\Roaming\\npm"
+        - "C:\\Users\\ankit\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Users\\ankit\\AppData\\Local\\Programs\\Antigravity IDE\\bin"
+      CMAKE_INSTALL_PREFIX: "C:/Program Files (x86)/KVCache"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "C:/Program Files"
+        - "C:/Program Files (x86)"
+        - "C:/Users/ankit/AppData/Local/Packages/PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0/LocalCache/local-packages/Python312/site-packages/cmake/data"
+        - "C:/Program Files (x86)/KVCache"
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Users/ankit/AppData/Local/Packages/PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0/LocalCache/local-packages/Python312/site-packages/cmake/data/share/cmake-4.4/Modules/CMakeDetermineCompilerABI.cmake:123 (try_compile)"
+      - "C:/Users/ankit/AppData/Local/Packages/PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0/LocalCache/local-packages/Python312/site-packages/cmake/data/share/cmake-4.4/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    checks:
+      - "Detecting CXX compiler ABI info"
+    directories:
+      source: "C:/Users/ankit/OneDrive/Desktop/KVcacheproject/build/CMakeFiles/CMakeScratch/TryCompile-1culff"
+      binary: "C:/Users/ankit/OneDrive/Desktop/KVcacheproject/build/CMakeFiles/CMakeScratch/TryCompile-1culff"
+    cmakeVariables:
+      CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "C:/Program Files/LLVM/bin/clang-scan-deps.exe"
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-O0 -g -Xclang -gcodeview"
+      CMAKE_CXX_SCAN_FOR_MODULES: "OFF"
+      CMAKE_CXX_STDLIB_MODULES_JSON: ""
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "CMAKE_CXX_ABI_COMPILED"
+      cached: false
+      stdout: |
+        Change Dir: 'C:/Users/ankit/OneDrive/Desktop/KVcacheproject/build/CMakeFiles/CMakeScratch/TryCompile-1culff'
+        
+        Run Build Command(s): C:\\Users\\ankit\\AppData\\Local\\Packages\\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\\LocalCache\\local-packages\\Python312\\Scripts\\ninja.exe -v cmTC_c9f8f
+        [1/2] "C:\\Program Files\\LLVM\\bin\\clang++.exe" -D_MBCS  -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -MD -MT CMakeFiles/cmTC_c9f8f.dir/CMakeCXXCompilerABI.cpp.obj -MF CMakeFiles\\cmTC_c9f8f.dir\\CMakeCXXCompilerABI.cpp.obj.d -o CMakeFiles/cmTC_c9f8f.dir/CMakeCXXCompilerABI.cpp.obj -c C:/Users/ankit/AppData/Local/Packages/PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0/LocalCache/local-packages/Python312/site-packages/cmake/data/share/cmake-4.4/Modules/CMakeCXXCompilerABI.cpp
+        [2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && "C:\\Program Files\\LLVM\\bin\\clang++.exe" -nostartfiles -nostdlib -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -v -Xlinker /subsystem:console -fuse-ld=lld CMakeFiles/cmTC_c9f8f.dir/CMakeCXXCompilerABI.cpp.obj -o cmTC_c9f8f.exe -Xlinker /MANIFEST:EMBED -Xlinker /implib:cmTC_c9f8f.lib -Xlinker /pdb:cmTC_c9f8f.pdb -Xlinker /version:0.0     && cd ."
+        FAILED: [code=1] cmTC_c9f8f.exe 
+        C:\\WINDOWS\\system32\\cmd.exe /C "cd . && "C:\\Program Files\\LLVM\\bin\\clang++.exe" -nostartfiles -nostdlib -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -v -Xlinker /subsystem:console -fuse-ld=lld CMakeFiles/cmTC_c9f8f.dir/CMakeCXXCompilerABI.cpp.obj -o cmTC_c9f8f.exe -Xlinker /MANIFEST:EMBED -Xlinker /implib:cmTC_c9f8f.lib -Xlinker /pdb:cmTC_c9f8f.pdb -Xlinker /version:0.0     && cd ."
+        clang version 22.1.8 (https://github.com/llvm/llvm-project ca7933e47d3a3451d81e72ac174dcb5aa28b59d1)
+        Target: x86_64-pc-windows-msvc
+        Thread model: posix
+        InstalledDir: C:\\Program Files\\LLVM\\bin
+         "C:\\\\Program Files\\\\LLVM\\\\bin\\\\lld-link" -out:cmTC_c9f8f.exe "-libpath:lib\\\\amd64" "-libpath:atlmfc\\\\lib\\\\amd64" "-libpath:C:\\\\Program Files\\\\LLVM\\\\lib\\\\clang\\\\22\\\\lib\\\\x86_64-pc-windows-msvc" "-libpath:C:\\\\Program Files\\\\LLVM\\\\lib\\\\clang\\\\22\\\\lib\\\\windows" -nologo -debug /subsystem:console CMakeFiles/cmTC_c9f8f.dir/CMakeCXXCompilerABI.cpp.obj /MANIFEST:EMBED /implib:cmTC_c9f8f.lib /pdb:cmTC_c9f8f.pdb /version:0.0
+        lld-link: error: could not open 'msvcrtd.lib': no such file or directory
+        clang++: error: linker command failed with exit code 1 (use -v to see invocation)
+        ninja: build stopped: subcommand failed.
+        
+      exitCode: 1
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Users/ankit/AppData/Local/Packages/PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0/LocalCache/local-packages/Python312/site-packages/cmake/data/share/cmake-4.4/Modules/CMakeTestCXXCompiler.cmake:56 (try_compile)"
+      - "CMakeLists.txt:2 (project)"
+    checks:
+      - "Check for working CXX compiler: C:/Program Files/LLVM/bin/clang++.exe"
+    directories:
+      source: "C:/Users/ankit/OneDrive/Desktop/KVcacheproject/build/CMakeFiles/CMakeScratch/TryCompile-kpyvmo"
+      binary: "C:/Users/ankit/OneDrive/Desktop/KVcacheproject/build/CMakeFiles/CMakeScratch/TryCompile-kpyvmo"
+    cmakeVariables:
+      CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "C:/Program Files/LLVM/bin/clang-scan-deps.exe"
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-O0 -g -Xclang -gcodeview"
+      CMAKE_CXX_SCAN_FOR_MODULES: "OFF"
+      CMAKE_CXX_STDLIB_MODULES_JSON: ""
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "CMAKE_CXX_COMPILER_WORKS"
+      cached: false
+      stdout: |
+        Change Dir: 'C:/Users/ankit/OneDrive/Desktop/KVcacheproject/build/CMakeFiles/CMakeScratch/TryCompile-kpyvmo'
+        
+        Run Build Command(s): C:\\Users\\ankit\\AppData\\Local\\Packages\\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\\LocalCache\\local-packages\\Python312\\Scripts\\ninja.exe -v cmTC_b443b
+        [1/2] "C:\\Program Files\\LLVM\\bin\\clang++.exe" -D_MBCS  -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -MD -MT CMakeFiles/cmTC_b443b.dir/testCXXCompiler.cxx.obj -MF CMakeFiles\\cmTC_b443b.dir\\testCXXCompiler.cxx.obj.d -o CMakeFiles/cmTC_b443b.dir/testCXXCompiler.cxx.obj -c C:/Users/ankit/OneDrive/Desktop/KVcacheproject/build/CMakeFiles/CMakeScratch/TryCompile-kpyvmo/testCXXCompiler.cxx
+        [2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && "C:\\Program Files\\LLVM\\bin\\clang++.exe" -nostartfiles -nostdlib -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -Xlinker /subsystem:console -fuse-ld=lld CMakeFiles/cmTC_b443b.dir/testCXXCompiler.cxx.obj -o cmTC_b443b.exe -Xlinker /MANIFEST:EMBED -Xlinker /implib:cmTC_b443b.lib -Xlinker /pdb:cmTC_b443b.pdb -Xlinker /version:0.0   -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 -loldnames  && cd ."
+        FAILED: [code=1] cmTC_b443b.exe 
+        C:\\WINDOWS\\system32\\cmd.exe /C "cd . && "C:\\Program Files\\LLVM\\bin\\clang++.exe" -nostartfiles -nostdlib -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -Xlinker /subsystem:console -fuse-ld=lld CMakeFiles/cmTC_b443b.dir/testCXXCompiler.cxx.obj -o cmTC_b443b.exe -Xlinker /MANIFEST:EMBED -Xlinker /implib:cmTC_b443b.lib -Xlinker /pdb:cmTC_b443b.pdb -Xlinker /version:0.0   -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 -loldnames  && cd ."
+        lld-link: error: could not open 'kernel32.lib': no such file or directory
+        lld-link: error: could not open 'user32.lib': no such file or directory
+        lld-link: error: could not open 'gdi32.lib': no such file or directory
+        lld-link: error: could not open 'winspool.lib': no such file or directory
+        lld-link: error: could not open 'shell32.lib': no such file or directory
+        lld-link: error: could not open 'ole32.lib': no such file or directory
+        lld-link: error: could not open 'oleaut32.lib': no such file or directory
+        lld-link: error: could not open 'uuid.lib': no such file or directory
+        lld-link: error: could not open 'comdlg32.lib': no such file or directory
+        lld-link: error: could not open 'advapi32.lib': no such file or directory
+        lld-link: error: could not open 'oldnames.lib': no such file or directory
+        lld-link: error: could not open 'msvcrtd.lib': no such file or directory
+        clang++: error: linker command failed with exit code 1 (use -v to see invocation)
+        ninja: build stopped: subcommand failed.
+        
+      exitCode: 1
+...

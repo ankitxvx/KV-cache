@@ -1,0 +1,8 @@
+test_block_allocator 2 0.00317345
+test_block_table 2 0.00329162
+test_sequence 2 0.00360713
+test_cache_manager 2 0.00568276
+test_eviction 2 0.00681249
+test_quantization 2 0.00849466
+test_prefix_cache 1 0.0158913
+---

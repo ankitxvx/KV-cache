@@ -1,137 +1,125 @@
 #include "kvcache/sequence.h"
+#include <algorithm>
 
 namespace kvcache {
+Sequence::Sequence(SequenceId id, const KVCacheConfig& config, BlockAllocator&)
+    : id_(id), config_(config), table_(config.block_size), layer_lengths_(config.num_layers, 0) {}
 
-Sequence::Sequence(SequenceId id, const KVCacheConfig& config, BlockAllocator& allocator)
-    : id_(id)
-    , config_(config)
-{
-    layer_tables_.reserve(config.num_layers);
-    for (int i = 0; i < config.num_layers; ++i) {
-        layer_tables_.emplace_back(config.block_size);
-    }
-}
-
-Status Sequence::append_token(int layer, const void* key_data, const void* value_data,
-                               BlockAllocator& allocator) {
-    if (layer < 0 || layer >= static_cast<int>(layer_tables_.size())) {
-        return Status::ERROR_INVALID_ARGUMENT;
-    }
-    if (!key_data || !value_data) {
-        return Status::ERROR_INVALID_ARGUMENT;
-    }
-
-    BlockId block_id;
-    int slot;
-    Status status = layer_tables_[layer].append_slot(allocator, block_id, slot);
-    if (status != Status::OK) {
-        return status;
-    }
-
-    // If this block is shared (ref_count > 1), we need Copy-on-Write
-    if (allocator.get_ref_count(block_id) > 1) {
-        BlockId new_block = allocator.copy_on_write(block_id);
-        if (!new_block.valid()) {
-            return Status::ERROR_OUT_OF_MEMORY;
-        }
-        allocator.unref(block_id);
-        // Update the block table to point to the new block
-        // The last block in the table is the one we just appended to
-        layer_tables_[layer].block_table_mut_last(new_block);
-        block_id = new_block;
-    }
-
-    // Copy KV data into the block
-    size_t kv_bytes = static_cast<size_t>(config_.num_kv_heads) * config_.head_dim
-                    * dtype_size(config_.dtype);
-
-    KVPairMut kv = allocator.get_kv_slot_mut(block_id, layer, slot);
-    if (!kv.valid()) {
-        return Status::ERROR_INTERNAL;
-    }
-
-    std::memcpy(kv.key, key_data, kv_bytes);
-    std::memcpy(kv.value, value_data, kv_bytes);
-
-    return Status::OK;
-}
-
-Status Sequence::append_token_all_layers(const std::vector<const void*>& key_data_per_layer,
-                                          const std::vector<const void*>& value_data_per_layer,
-                                          BlockAllocator& allocator) {
-    if (static_cast<int>(key_data_per_layer.size()) != config_.num_layers ||
-        static_cast<int>(value_data_per_layer.size()) != config_.num_layers) {
-        return Status::ERROR_INVALID_ARGUMENT;
-    }
-
-    for (int layer = 0; layer < config_.num_layers; ++layer) {
-        Status s = append_token(layer, key_data_per_layer[layer],
-                                value_data_per_layer[layer], allocator);
-        if (s != Status::OK) {
-            return s;
+Status Sequence::prepare_write(int token, BlockAllocator& allocator, BlockId& block) {
+    if (token >= config_.max_sequence_tokens) return Status::ERROR_OUT_OF_MEMORY;
+    if (token == table_.num_tokens()) {
+        evicted_.reserve(static_cast<size_t>(token) + 1);
+        int slot;
+        auto status = table_.append_slot(allocator, block, slot);
+        if (status != Status::OK) return status;
+        evicted_.push_back(false);
+    } else {
+        block = table_.get_physical_block(token);
+        if (!block.valid() || evicted_[token]) return Status::ERROR_INVALID_ARGUMENT;
+        if (allocator.get_ref_count(block) > 1) {
+            auto replacement = allocator.copy_on_write(block);
+            if (!replacement.valid()) return Status::ERROR_OUT_OF_MEMORY;
+            table_.set_block(token / config_.block_size, replacement);
+            allocator.unref(block); block = replacement;
         }
     }
     return Status::OK;
 }
-
-KVPair Sequence::get_kv(int layer, int token_idx, const BlockAllocator& allocator) const {
-    KVPair result;
-    if (layer < 0 || layer >= static_cast<int>(layer_tables_.size())) {
-        return result;
-    }
-
-    BlockId block_id = layer_tables_[layer].get_physical_block(token_idx);
-    if (!block_id.valid()) {
-        return result;
-    }
-
-    int slot = layer_tables_[layer].get_slot_in_block(token_idx);
-    return allocator.get_kv_slot(block_id, layer, slot);
+Status Sequence::append_token(int layer, const void* key, const void* value, BlockAllocator& allocator) {
+    if (layer < 0 || layer >= num_layers() || !key || !value) return Status::ERROR_INVALID_ARGUMENT;
+    int token = layer_lengths_[layer];
+    if (token > *std::min_element(layer_lengths_.begin(), layer_lengths_.end()))
+        return Status::ERROR_INVALID_ARGUMENT;
+    BlockId block;
+    auto status = prepare_write(token, allocator, block);
+    if (status != Status::OK) return status;
+    auto kv = allocator.get_kv_slot_mut(block, layer, token % config_.block_size);
+    size_t bytes = config_.kv_pair_bytes_per_token() / 2;
+    std::memcpy(kv.key, key, bytes); std::memcpy(kv.value, value, bytes);
+    ++layer_lengths_[layer];
+    return Status::OK;
 }
-
-Sequence Sequence::fork(SequenceId new_id, BlockAllocator& allocator) const {
-    Sequence copy;
-    copy.id_ = new_id;
-    copy.config_ = config_;
-    copy.layer_tables_.reserve(layer_tables_.size());
-
-    for (const auto& table : layer_tables_) {
-        copy.layer_tables_.push_back(table.fork(allocator));
+Status Sequence::append_token_all_layers(const std::vector<const void*>& keys,
+                                        const std::vector<const void*>& values, BlockAllocator& allocator) {
+    if (keys.size() != layer_lengths_.size() || values.size() != keys.size() || !complete())
+        return Status::ERROR_INVALID_ARGUMENT;
+    for (size_t i = 0; i < keys.size(); ++i)
+        if (!keys[i] || !values[i]) return Status::ERROR_INVALID_ARGUMENT;
+    int token = num_tokens();
+    BlockId block;
+    auto status = prepare_write(token, allocator, block);
+    if (status != Status::OK) return status;
+    size_t bytes = config_.kv_pair_bytes_per_token() / 2;
+    for (int layer = 0; layer < num_layers(); ++layer) {
+        auto kv = allocator.get_kv_slot_mut(block, layer, token % config_.block_size);
+        std::memcpy(kv.key, keys[layer], bytes); std::memcpy(kv.value, values[layer], bytes);
+        ++layer_lengths_[layer];
     }
-
-    return copy;
+    return Status::OK;
 }
-
+KVPair Sequence::get_kv(int layer, int token, const BlockAllocator& allocator) const {
+    if (layer < 0 || layer >= num_layers() || token < 0 || token >= layer_lengths_[layer] || evicted_[token])
+        return {};
+    return allocator.get_kv_slot(table_.get_physical_block(token), layer, token % config_.block_size);
+}
+Sequence Sequence::fork(SequenceId id, BlockAllocator& allocator) const {
+    Sequence result;
+    result.id_ = id; result.config_ = config_;
+    result.layer_lengths_ = layer_lengths_; result.evicted_ = evicted_;
+    result.table_ = table_.fork(allocator);
+    return result;
+}
 void Sequence::free_all(BlockAllocator& allocator) {
-    for (auto& table : layer_tables_) {
-        table.free_all(allocator);
-    }
-    layer_tables_.clear();
-    id_ = SequenceId{-1};
+    table_.free_all(allocator); layer_lengths_.clear(); evicted_.clear(); id_ = {-1};
 }
-
-void Sequence::truncate(int new_length, BlockAllocator& allocator) {
-    for (auto& table : layer_tables_) {
-        table.truncate(new_length, allocator);
-    }
+void Sequence::truncate(int length, BlockAllocator& allocator) {
+    length = std::max(0, std::min(length, table_.num_tokens()));
+    table_.truncate(length, allocator); evicted_.resize(length);
+    for (auto& n : layer_lengths_) n = std::min(n, length);
 }
-
-int Sequence::num_tokens() const {
-    if (layer_tables_.empty()) return 0;
-    return layer_tables_[0].num_tokens();
-}
-
+int Sequence::num_tokens() const { return layer_lengths_.empty() ? 0 : layer_lengths_[0]; }
 int Sequence::num_tokens_at_layer(int layer) const {
-    if (layer < 0 || layer >= static_cast<int>(layer_tables_.size())) return 0;
-    return layer_tables_[layer].num_tokens();
+    return layer < 0 || layer >= num_layers() ? 0 : layer_lengths_[layer];
 }
-
 int Sequence::total_blocks() const {
-    int total = 0;
-    for (const auto& table : layer_tables_) {
-        total += table.num_blocks();
-    }
-    return total;
+    return static_cast<int>(std::count_if(table_.blocks_.begin(), table_.blocks_.end(), [](BlockId b) {return b.valid();}));
 }
-
+bool Sequence::complete() const {
+    return !layer_lengths_.empty() && std::all_of(layer_lengths_.begin(), layer_lengths_.end(),
+        [this](int n) { return n == num_tokens(); });
+}
+bool Sequence::has_evictions() const { return std::find(evicted_.begin(), evicted_.end(), true) != evicted_.end(); }
+int Sequence::cached_tokens() const {
+    return num_tokens() - static_cast<int>(std::count(evicted_.begin(), evicted_.begin() + num_tokens(), true));
+}
+int Sequence::evict_tokens(const std::vector<int>& tokens, BlockAllocator& allocator) {
+    if (!complete()) return 0;
+    int count = 0;
+    for (int token : tokens) {
+        if (token >= 0 && token < num_tokens() && !evicted_[token]) { evicted_[token] = true; ++count; }
+    }
+    for (size_t i = 0; i < table_.blocks_.size(); ++i) {
+        if (!table_.blocks_[i].valid()) continue;
+        int first = static_cast<int>(i) * config_.block_size;
+        int end = std::min(first + config_.block_size, num_tokens());
+        // Retain a partial tail because future tokens still append there.
+        if (end - first == config_.block_size &&
+            std::all_of(evicted_.begin() + first, evicted_.begin() + end, [](bool v) {return v;})) {
+            allocator.unref(table_.blocks_[i]); table_.blocks_[i] = {-1};
+        }
+    }
+    return count;
+}
+Status Sequence::attach_prefix(const std::vector<BlockId>& blocks, int tokens, BlockAllocator& allocator) {
+    if (!complete() || num_tokens() != 0 || tokens <= 0 || tokens > config_.max_sequence_tokens ||
+        tokens % config_.block_size || blocks.size() != static_cast<size_t>(tokens / config_.block_size))
+        return Status::ERROR_INVALID_ARGUMENT;
+    for (auto block : blocks) if (allocator.get_ref_count(block) == 0) return Status::ERROR_BLOCK_NOT_FOUND;
+    auto copy = blocks;
+    std::vector<bool> live(tokens, false);
+    for (auto block : copy) allocator.ref(block);
+    table_.blocks_ = std::move(copy); table_.num_tokens_ = tokens; evicted_ = std::move(live);
+    std::fill(layer_lengths_.begin(), layer_lengths_.end(), tokens);
+    return Status::OK;
+}
 } // namespace kvcache

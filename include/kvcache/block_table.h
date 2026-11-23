@@ -64,6 +64,7 @@ public:
     int block_size() const { return block_size_; }
 
 private:
+    friend class Sequence;
     int block_size_  = 16;
     int num_tokens_  = 0;
     std::vector<BlockId> blocks_;   ///< Ordered physical block IDs

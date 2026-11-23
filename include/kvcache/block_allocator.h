@@ -60,6 +60,10 @@ public:
     /// Get the reference count for a block.
     int get_ref_count(BlockId id) const;
 
+    /// Get a raw pointer to the start of a block's entire memory buffer.
+    void* get_block_ptr(BlockId id);
+    const void* get_block_ptr(BlockId id) const;
+
     /// Get a raw mutable pointer to the start of a specific layer's K data
     /// within a block. Returns nullptr on invalid input.
     void* get_key_ptr(BlockId id, int layer);

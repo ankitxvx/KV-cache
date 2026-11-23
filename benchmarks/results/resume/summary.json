@@ -1,0 +1,542 @@
+{
+  "timestamp_utc": "2026-11-23T14:37:25.352672+00:00",
+  "cpu": "11th Gen Intel(R) Core(TM) i5-1135G7 @ 2.40GHz",
+  "os": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.43",
+  "python": "3.14.4",
+  "logical_cpus_available": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "pinned_cpu": 0,
+  "compiler": "c++ (Ubuntu 15.2.0-16ubuntu1) 15.2.0",
+  "binary_sha256": "c4ffbdbfa232fd2c11afd430162679b56f1135bdd9869b81bbf9a46506674d4b",
+  "git_head": "43803606ffcc1690c61673aec7415013caa736d0",
+  "source_sha256": {
+    "src/attention.cpp": "8ed8a019dec30267ccc0a90ff243dedd274d32f46689b31a28d9a94ffc04a284",
+    "src/block_allocator.cpp": "16c0f65b0fdf7c5c4ad464c4fd426e285290c0ee2b1c411b8fceae6dec2cbcd2",
+    "src/block_table.cpp": "95d7cc692b679699e600e4fa1ff29bb91a53a0cf95c1f651887e5751f860d099",
+    "src/cache_manager.cpp": "e565d253031e4c752ed9f24eb8cdbae4876fdb99919123c3341a8f56a1cf7a17",
+    "src/eviction_policy.cpp": "52c39b0a0d5426dc5322e42e5666c6d30217b3bc90bb796c290a21aa7a869b92",
+    "src/gpu_allocator.cpp": "f73e61e3965a8163a43e69b3cac3458e28f2bc250ad1080e2c7bb1b6b60657d9",
+    "src/logger.cpp": "61a9a2a1f42c09388597e1fac3a39a029af2a89ccff2c993c5cc7b544de87d9a",
+    "src/metrics.cpp": "7601aca60da9c9239659100250ff6808effbfd368a81865e3c1f162b256826a9",
+    "src/prefix_cache.cpp": "44757d247f180895651cf20187b0cb7e3e58ade4323d17b1d5a41117f7efddc5",
+    "src/quantization.cpp": "daf90794c38833905b9cac5b4ecb358e1f0030fc8380c93fd1ec0664cf63e388",
+    "src/scheduler.cpp": "d6dd1f8d4055bd66e08953bb1f0e1e02f2ae970b2711a855ea919abc4cc679e3",
+    "src/sequence.cpp": "e2913ebd854ec6195d2042dd6321f151b0e645715c6f27ed6bee516c5fa87487",
+    "src/ssd_allocator.cpp": "dc3e1e05f316ef210d336d1c1f0bae06d724430c76674b9caaa202e8d5216630",
+    "src/tier_manager.cpp": "75c0f8c75ffecf0543929c32998c58ce6cdf189963547e00ac493763adcf3cb9",
+    "src/transfer_engine.cpp": "75f4ddb222d7975f79dbee0019b00b5de05faf30222196ec8d5cdc5423669dcb",
+    "src/cuda/paged_attention.cu": "7179ff6e3381f43915597e1da36f8ca76d6980df630f8a04a107c92c400003ea",
+    "include/kvcache/attention.h": "73fcdd377e758eaaae9d42714e4d683d273bf0fb7c8c6bfdf89e41b3c4b3b4ca",
+    "include/kvcache/block_allocator.h": "8a1a09eea96f913610e0d536aea3a38b6ba63878e757b0b9df2b643764ffaa45",
+    "include/kvcache/block_table.h": "a1ad61bf198b215eb5711f3cbab8e90ae4e6f69c278bca831f44957143ce5065",
+    "include/kvcache/cache_manager.h": "2e3ccb5e0f2a82dbac343f1565ce1c7b18ff0d9085aa16b7483aa22fc4b677d6",
+    "include/kvcache/config.h": "f0882987d0c631c40b56482de5911164416f8b3c9382d5fbfc72b871cdac9cf6",
+    "include/kvcache/eviction_policy.h": "e3fc586a8dcaea16fe35b2193fd2999e6f80c31ebec2e4ff14f63d1f2a6748e0",
+    "include/kvcache/gpu_allocator.h": "c24835591470b59eda8891a8b59f80b92b152d848fdd6f47771e091bbccb8e7a",
+    "include/kvcache/kvcache.h": "d44674338796a41f6a115d59633a310664a9966ec21cfc0f9d3d984dcf0579e5",
+    "include/kvcache/logger.h": "c49e7006e60a62938060d5fb6df57db8d3b1fe6cc616e2b0a3a6981195fc3d69",
+    "include/kvcache/metrics.h": "bb76102492c644de1810fd8819a65ee12b2da91ee3a81704427ce41da710750e",
+    "include/kvcache/prefix_cache.h": "01f3bf502e85068382aa162abae66300283e6c094632f28829d22a177e88ed9a",
+    "include/kvcache/quantization.h": "731796f749da70864c57c60de230e1e84f6f66240ec7f6972b1c13b1c3519deb",
+    "include/kvcache/scheduler.h": "8a748878a22d45473355c014ca8d648362239dcdc1e07b47ec4169d9b71e6c32",
+    "include/kvcache/sequence.h": "d69cb36d804e068be8f802c6f59e7a93517b0f05afa170b492b309ae212ed61c",
+    "include/kvcache/ssd_allocator.h": "b5db335869f51cf234e6102befcf7dcbce1759dc239a4ebd5224f0d2b3d52a18",
+    "include/kvcache/tier_manager.h": "35024c76d055e2c1de9c9e6a000956900ae15a7a059dcb8033649cce00ee357d",
+    "include/kvcache/transfer_engine.h": "7725cb072f8fd2e71f370a915bcc8e625af155d5b65ac431c77e6770a7a89ed1",
+    "include/kvcache/types.h": "4f898a79ec0afb8f42e50ab86d77abd8394964cf0f646f29d0de1afb926848ee",
+    "include/kvcache/cuda/paged_attention.cuh": "3e76613df9769c5078f19b35d8d0a029efee749c20f1630ac7ae9b4f103519cc",
+    "benchmarks/bench_resume.cpp": "7d0ea02316d488fa805727a656e8097c904ab44408debb6b8709dc0bca4945db",
+    "benchmarks/bench_throughput.cpp": "42ca27e153004ae67d5868eca5bbf6e509b177eca0aaa72c28d4c2f3ce73bb5e",
+    "benchmarks/run_resume.py": "3e1f7d7e57d598103ae6c7801ee25ece90161b1422cbfa1c67cca676bde9e56c"
+  },
+  "method": "Release C++17, CPU only, one benchmark thread pinned to one logical CPU; 1 warmup and 7 measured repetitions per workload",
+  "geometry": {
+    "layers": 4,
+    "kv_heads": 4,
+    "head_dim": 64,
+    "block_tokens": 16,
+    "dtype": "FP32",
+    "KV_bytes_per_token_all_layers": 8192
+  },
+  "scope": "Synthetic cache operations; excludes allocation of the initial pool, input preparation, model computation, GPU transfers and inference generation. Operation latency includes clock instrumentation. GB/s uses decimal bytes.",
+  "fork_check": "32 simultaneous forks allocated zero additional physical KV blocks; metadata allocations are not included in that claim.",
+  "checks": "Append success, expected physical block count, copied payload equality, fork source length isolation, full prefix attachment and payload equality, zero retained blocks after cleanup",
+  "summary": [
+    {
+      "workload": "8x256",
+      "operation": "append_all_layers",
+      "repetitions": 7,
+      "operations_per_second": {
+        "median": 1296635.01687,
+        "min": 1095847.018044,
+        "max": 1507593.915445
+      },
+      "payload_GB_per_second": {
+        "median": 10.622034,
+        "min": 8.977179,
+        "max": 12.350209
+      },
+      "p50_us": {
+        "median": 0.577,
+        "min": 0.505,
+        "max": 0.636
+      },
+      "p95_us": {
+        "median": 1.542,
+        "min": 1.36,
+        "max": 2.041
+      },
+      "p99_us": {
+        "median": 1.999,
+        "min": 1.732,
+        "max": 2.969
+      },
+      "physical_blocks": [
+        128,
+        128,
+        128,
+        128,
+        128,
+        128,
+        128
+      ]
+    },
+    {
+      "workload": "8x256",
+      "operation": "copy_kv_layer",
+      "repetitions": 7,
+      "operations_per_second": {
+        "median": 5502192.615698,
+        "min": 4223477.212711,
+        "max": 5590049.8205
+      },
+      "payload_GB_per_second": {
+        "median": 11.26849,
+        "min": 8.649681,
+        "max": 11.448422
+      },
+      "p50_us": {
+        "median": 0.096,
+        "min": 0.082,
+        "max": 0.109
+      },
+      "p95_us": {
+        "median": 0.381,
+        "min": 0.318,
+        "max": 0.571
+      },
+      "p99_us": {
+        "median": 0.606,
+        "min": 0.546,
+        "max": 0.925
+      },
+      "physical_blocks": [
+        128,
+        128,
+        128,
+        128,
+        128,
+        128,
+        128
+      ]
+    },
+    {
+      "workload": "8x256",
+      "operation": "fork_sequence",
+      "repetitions": 7,
+      "operations_per_second": {
+        "median": 2110261.144817,
+        "min": 917010.545621,
+        "max": 2235417.394342
+      },
+      "payload_GB_per_second": {
+        "median": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "p50_us": {
+        "median": 0.351,
+        "min": 0.332,
+        "max": 0.541
+      },
+      "p95_us": {
+        "median": 0.769,
+        "min": 0.694,
+        "max": 2.009
+      },
+      "p99_us": {
+        "median": 1.241,
+        "min": 1.004,
+        "max": 2.096
+      },
+      "physical_blocks": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "workload": "8x256",
+      "operation": "prefix_attach",
+      "repetitions": 7,
+      "operations_per_second": {
+        "median": 224547.536714,
+        "min": 151633.241646,
+        "max": 258203.112897
+      },
+      "payload_GB_per_second": {
+        "median": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "p50_us": {
+        "median": 4.144,
+        "min": 3.758,
+        "max": 4.573
+      },
+      "p95_us": {
+        "median": 4.812,
+        "min": 3.992,
+        "max": 5.825
+      },
+      "p99_us": {
+        "median": 5.5,
+        "min": 5.025,
+        "max": 8.228
+      },
+      "physical_blocks": [
+        128,
+        128,
+        128,
+        128,
+        128,
+        128,
+        128
+      ]
+    },
+    {
+      "workload": "4x1024",
+      "operation": "append_all_layers",
+      "repetitions": 7,
+      "operations_per_second": {
+        "median": 1115620.318671,
+        "min": 586549.318616,
+        "max": 1287395.685904
+      },
+      "payload_GB_per_second": {
+        "median": 9.139162,
+        "min": 4.805012,
+        "max": 10.546345
+      },
+      "p50_us": {
+        "median": 0.683,
+        "min": 0.58,
+        "max": 0.913
+      },
+      "p95_us": {
+        "median": 1.816,
+        "min": 1.549,
+        "max": 5.243
+      },
+      "p99_us": {
+        "median": 2.514,
+        "min": 2.09,
+        "max": 7.796
+      },
+      "physical_blocks": [
+        256,
+        256,
+        256,
+        256,
+        256,
+        256,
+        256
+      ]
+    },
+    {
+      "workload": "4x1024",
+      "operation": "copy_kv_layer",
+      "repetitions": 7,
+      "operations_per_second": {
+        "median": 5040168.456802,
+        "min": 1851396.293388,
+        "max": 5473575.898092
+      },
+      "payload_GB_per_second": {
+        "median": 10.322265,
+        "min": 3.79166,
+        "max": 11.209883
+      },
+      "p50_us": {
+        "median": 0.096,
+        "min": 0.086,
+        "max": 0.169
+      },
+      "p95_us": {
+        "median": 0.422,
+        "min": 0.36,
+        "max": 1.963
+      },
+      "p99_us": {
+        "median": 0.674,
+        "min": 0.576,
+        "max": 2.878
+      },
+      "physical_blocks": [
+        256,
+        256,
+        256,
+        256,
+        256,
+        256,
+        256
+      ]
+    },
+    {
+      "workload": "4x1024",
+      "operation": "fork_sequence",
+      "repetitions": 7,
+      "operations_per_second": {
+        "median": 1210150.134251,
+        "min": 963333.132639,
+        "max": 1342394.496183
+      },
+      "payload_GB_per_second": {
+        "median": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "p50_us": {
+        "median": 0.648,
+        "min": 0.567,
+        "max": 0.737
+      },
+      "p95_us": {
+        "median": 1.211,
+        "min": 0.93,
+        "max": 1.538
+      },
+      "p99_us": {
+        "median": 1.634,
+        "min": 1.278,
+        "max": 1.965
+      },
+      "physical_blocks": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "workload": "4x1024",
+      "operation": "prefix_attach",
+      "repetitions": 7,
+      "operations_per_second": {
+        "median": 16758.213997,
+        "min": 13359.730379,
+        "max": 17308.389636
+      },
+      "payload_GB_per_second": {
+        "median": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "p50_us": {
+        "median": 58.493,
+        "min": 54.646,
+        "max": 62.321
+      },
+      "p95_us": {
+        "median": 69.158,
+        "min": 60.643,
+        "max": 168.556
+      },
+      "p99_us": {
+        "median": 95.628,
+        "min": 68.742,
+        "max": 256.387
+      },
+      "physical_blocks": [
+        256,
+        256,
+        256,
+        256,
+        256,
+        256,
+        256
+      ]
+    },
+    {
+      "workload": "1x4096",
+      "operation": "append_all_layers",
+      "repetitions": 7,
+      "operations_per_second": {
+        "median": 1100420.045591,
+        "min": 519826.046102,
+        "max": 1260101.035738
+      },
+      "payload_GB_per_second": {
+        "median": 9.014641,
+        "min": 4.258415,
+        "max": 10.322748
+      },
+      "p50_us": {
+        "median": 0.634,
+        "min": 0.599,
+        "max": 1.087
+      },
+      "p95_us": {
+        "median": 1.769,
+        "min": 1.588,
+        "max": 4.778
+      },
+      "p99_us": {
+        "median": 2.509,
+        "min": 2.074,
+        "max": 8.189
+      },
+      "physical_blocks": [
+        256,
+        256,
+        256,
+        256,
+        256,
+        256,
+        256
+      ]
+    },
+    {
+      "workload": "1x4096",
+      "operation": "copy_kv_layer",
+      "repetitions": 7,
+      "operations_per_second": {
+        "median": 4628262.969179,
+        "min": 3720184.201796,
+        "max": 5958576.546106
+      },
+      "payload_GB_per_second": {
+        "median": 9.478683,
+        "min": 7.618937,
+        "max": 12.203165
+      },
+      "p50_us": {
+        "median": 0.088,
+        "min": 0.084,
+        "max": 0.197
+      },
+      "p95_us": {
+        "median": 0.454,
+        "min": 0.333,
+        "max": 0.574
+      },
+      "p99_us": {
+        "median": 0.731,
+        "min": 0.576,
+        "max": 1.479
+      },
+      "physical_blocks": [
+        256,
+        256,
+        256,
+        256,
+        256,
+        256,
+        256
+      ]
+    },
+    {
+      "workload": "1x4096",
+      "operation": "fork_sequence",
+      "repetitions": 7,
+      "operations_per_second": {
+        "median": 324793.958832,
+        "min": 271338.206115,
+        "max": 549290.214052
+      },
+      "payload_GB_per_second": {
+        "median": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "p50_us": {
+        "median": 1.777,
+        "min": 1.647,
+        "max": 3.224
+      },
+      "p95_us": {
+        "median": 3.464,
+        "min": 2.157,
+        "max": 8.286
+      },
+      "p99_us": {
+        "median": 3.825,
+        "min": 2.34,
+        "max": 15.256
+      },
+      "physical_blocks": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "workload": "1x4096",
+      "operation": "prefix_attach",
+      "repetitions": 7,
+      "operations_per_second": {
+        "median": 1073.540959,
+        "min": 820.49568,
+        "max": 1104.963157
+      },
+      "payload_GB_per_second": {
+        "median": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "p50_us": {
+        "median": 918.619,
+        "min": 883.051,
+        "max": 1195.369
+      },
+      "p95_us": {
+        "median": 1094.453,
+        "min": 1048.318,
+        "max": 1618.204
+      },
+      "p99_us": {
+        "median": 1290.235,
+        "min": 1221.377,
+        "max": 2114.055
+      },
+      "physical_blocks": [
+        256,
+        256,
+        256,
+        256,
+        256,
+        256,
+        256
+      ]
+    }
+  ]
+}

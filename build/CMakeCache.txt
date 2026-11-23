@@ -137,16 +137,16 @@ CMAKE_PROJECT_DESCRIPTION:STATIC=
 CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=KVCache
+CMAKE_PROJECT_NAME:STATIC=PageForge
 
 //Value Computed by CMake
 CMAKE_PROJECT_SPDX_LICENSE:STATIC=
 
 //Value Computed by CMake
-CMAKE_PROJECT_VERSION:STATIC=1.0.0
+CMAKE_PROJECT_VERSION:STATIC=2.0.0
 
 //Value Computed by CMake
-CMAKE_PROJECT_VERSION_MAJOR:STATIC=1
+CMAKE_PROJECT_VERSION_MAJOR:STATIC=2
 
 //Value Computed by CMake
 CMAKE_PROJECT_VERSION_MINOR:STATIC=0
@@ -248,6 +248,15 @@ KVCache_IS_TOP_LEVEL:STATIC=ON
 
 //Value Computed by CMake
 KVCache_SOURCE_DIR:STATIC=C:/Users/ankit/OneDrive/Desktop/KVcacheproject
+
+//Value Computed by CMake
+PageForge_BINARY_DIR:STATIC=C:/Users/ankit/OneDrive/Desktop/KVcacheproject/build
+
+//Value Computed by CMake
+PageForge_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+PageForge_SOURCE_DIR:STATIC=C:/Users/ankit/OneDrive/Desktop/KVcacheproject
 
 
 ########################
